@@ -50,6 +50,13 @@ void downloadFile(string url){
         outputFile.write(buffer, bytesRead);
     }
     outputFile.close();
+
+    if (hConnect) {
+        InternetCloseHandle(hConnect);
+    }
+    if (hInternet) {
+        InternetCloseHandle(hInternet);
+    }
     
     cout << "File downloaded successfully to: " << outputFileName << endl;
 }
